@@ -1,0 +1,19 @@
+direction,method,n_subjects,mean_acc,std_acc,n_acc_ge_60,n_acc_ge_70
+cho2017->lee2019,CSP-LDA,54,55.15,6.73,10,3
+cho2017->lee2019,EA-CSP-LDA,54,52.87,5.13,4,1
+cho2017->lee2019,DatasetEA+SubjectEA+CSP-LDA,54,68.10,12.38,40,23
+cho2017->lee2019,DatasetEA+SubjectEA+CSPNet,54,62.35,9.51,31,12
+cho2017->lee2019,DatasetEA+SubjectEA+AdaBN+Con,54,62.69,9.99,32,16
+cho2017->lee2019,PSDNorm+DatasetEA+SubjectEA+AdaBN+Con,54,62.29,10.02,29,15
+cho2017->lee2019,Delta DatasetEA+SubjectEA+CSP-LDA vs CSP-LDA,54,12.95,9.60,50,43
+cho2017->lee2019,Delta DatasetEA+SubjectEA+CSP-LDA vs EA-CSP-LDA,54,15.23,9.95,52,44
+cho2017->lee2019,Delta DatasetEA+SubjectEA+CSP-LDA vs DatasetEA+SubjectEA+CSPNet,54,5.75,6.21,45,28
+lee2019->cho2017,CSP-LDA,52,52.76,4.92,4,1
+lee2019->cho2017,EA-CSP-LDA,52,59.23,10.11,18,8
+lee2019->cho2017,DatasetEA+SubjectEA+CSP-LDA,52,63.95,11.80,32,11
+lee2019->cho2017,DatasetEA+SubjectEA+CSPNet,52,60.19,8.61,25,6
+lee2019->cho2017,DatasetEA+SubjectEA+AdaBN+Con,52,59.80,8.21,25,6
+lee2019->cho2017,PSDNorm+DatasetEA+SubjectEA+AdaBN+Con,52,60.53,8.99,30,6
+lee2019->cho2017,Delta DatasetEA+SubjectEA+CSP-LDA vs CSP-LDA,52,11.19,10.18,48,39
+lee2019->cho2017,Delta DatasetEA+SubjectEA+CSP-LDA vs EA-CSP-LDA,52,4.72,5.47,43,25
+lee2019->cho2017,Delta DatasetEA+SubjectEA+CSP-LDA vs DatasetEA+SubjectEA+CSPNet,52,3.76,6.79,37,21

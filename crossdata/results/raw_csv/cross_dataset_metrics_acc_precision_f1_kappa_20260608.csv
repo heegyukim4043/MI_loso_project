@@ -1,0 +1,7 @@
+method,variant,direction,n_subjects,acc_mean,acc_std,precision_macro_mean,precision_macro_std,f1_macro_mean,f1_macro_std,kappa_mean,kappa_std,source_csv
+RawUnified+DatasetEA+SubjectEA+CSP-LDA,base,cho2017->lee2019,54,68.96,12.37,69.27,12.43,68.71,12.6,0.379,0.247,/home/hkim/MI_test/results/loso_results_20260608_metrics_final_base_cross_cho2017_to_lee2019_csp_lda.csv
+RawUnified+DatasetEA+SubjectEA+CSP-LDA,base,lee2019->cho2017,52,65.1,12.27,65.43,12.35,64.85,12.41,0.302,0.245,/home/hkim/MI_test/results/loso_results_20260608_metrics_final_base_cross_lee2019_to_cho2017_csp_lda.csv
+SessionEA+CSP-LDA,session_ea,cho2017->lee2019,54,70.74,13.05,71.22,13.28,69.87,14.28,0.415,0.261,/home/hkim/MI_test/results/loso_results_20260608_metrics_final_session_ea_cross_cho2017_to_lee2019_csp_lda.csv
+SessionEA+CSP-LDA,session_ea,lee2019->cho2017,52,65.13,12.28,65.51,12.41,64.91,12.35,0.303,0.246,/home/hkim/MI_test/results/loso_results_20260608_metrics_final_session_ea_cross_lee2019_to_cho2017_csp_lda.csv
+SessionEA+Feature-CORAL+CSP-LDA,session_ea_feature_coral,cho2017->lee2019,54,70.2,12.33,70.23,12.35,70.19,12.34,0.404,0.247,/home/hkim/MI_test/results/loso_results_20260608_metrics_final_session_ea_feature_coral_cross_cho2017_to_lee2019_csp_lda.csv
+SessionEA+Feature-CORAL+CSP-LDA,session_ea_feature_coral,lee2019->cho2017,52,65.66,11.41,65.7,11.42,65.64,11.42,0.313,0.228,/home/hkim/MI_test/results/loso_results_20260608_metrics_final_session_ea_feature_coral_cross_lee2019_to_cho2017_csp_lda.csv

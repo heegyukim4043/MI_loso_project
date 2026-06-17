@@ -1,0 +1,718 @@
+{
+  "created_at": "2026-06-17T10:20:10",
+  "raw_cross_csv_count": 142,
+  "subject_level_rows": 6996,
+  "method_summary_rows": 176,
+  "files": [
+    {
+      "file": "results/raw_csv/cross_dataset_alignment_variants_summary_20260608_alignment_variants.csv",
+      "rows": 1,
+      "subject_level": false
+    },
+    {
+      "file": "results/raw_csv/cross_dataset_alignment_variants_summary_20260608_alignment_variants_all.csv",
+      "rows": 4,
+      "subject_level": false
+    },
+    {
+      "file": "results/raw_csv/cross_dataset_extra_variants_summary_20260608_extra_variants.csv",
+      "rows": 4,
+      "subject_level": false
+    },
+    {
+      "file": "results/raw_csv/cross_dataset_metrics_acc_precision_f1_kappa_20260608.csv",
+      "rows": 6,
+      "subject_level": false
+    },
+    {
+      "file": "results/raw_csv/cross_dataset_session_coral_mmd_summary_20260608_metrics_final.csv",
+      "rows": 3,
+      "subject_level": false
+    },
+    {
+      "file": "results/raw_csv/cross_dataset_session_coral_mmd_summary_20260608_session_coral_mmd.csv",
+      "rows": 4,
+      "subject_level": false
+    },
+    {
+      "file": "results/raw_csv/cross_dataset_session_coral_mmd_summary_20260608_session_mmd_sourceselect.csv",
+      "rows": 6,
+      "subject_level": false
+    },
+    {
+      "file": "results/raw_csv/cross_dataset_session_coral_mmd_summary_20260613_sfreq100_sessionea.csv",
+      "rows": 3,
+      "subject_level": false
+    },
+    {
+      "file": "results/raw_csv/cross_dataset_subject_analysis_20260604.csv",
+      "rows": 106,
+      "subject_level": false
+    },
+    {
+      "file": "results/raw_csv/cross_dataset_subject_analysis_summary_20260604.csv",
+      "rows": 18,
+      "subject_level": false
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_csp_lda_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_csp_lda_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_datasetea_ea_adabn_con_pseudo085_cross_cho2017_to_lee2019_cspnetcontrastive.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_datasetea_ea_adabn_con_pseudo085_cross_lee2019_to_cho2017_cspnetcontrastive.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_datasetea_ea_csp_lda_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_datasetea_ea_csp_lda_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_datasetea_ea_dsbn_con_cross_cho2017_to_lee2019_cspnetcontrastive.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_datasetea_ea_dsbn_con_cross_lee2019_to_cho2017_cspnetcontrastive.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_datasetea_ea_pseudo080_cspnet_cross_cho2017_to_lee2019_cspnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_datasetea_ea_pseudo080_cspnet_cross_lee2019_to_cho2017_cspnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_datasetea_ea_pseudo085_cspnet_cross_cho2017_to_lee2019_cspnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_datasetea_ea_pseudo085_cspnet_cross_lee2019_to_cho2017_cspnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_datasetea_ea_pseudo090_cspnet_cross_cho2017_to_lee2019_cspnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_datasetea_ea_pseudo090_cspnet_cross_lee2019_to_cho2017_cspnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_datasetea_ea_weight_tau01_cspnet_cross_cho2017_to_lee2019_cspnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_datasetea_ea_weight_tau01_cspnet_cross_lee2019_to_cho2017_cspnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_datasetea_ea_weight_tau05_cspnet_cross_cho2017_to_lee2019_cspnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_datasetea_ea_weight_tau05_cspnet_cross_lee2019_to_cho2017_cspnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_datasetea_ea_weight_tau10_cspnet_cross_cho2017_to_lee2019_cspnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_datasetea_ea_weight_tau10_cspnet_cross_lee2019_to_cho2017_cspnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_ea_csp_lda_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260604_cross_stdmi_ea_csp_lda_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260605_raw_unified_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260605_raw_unified_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_alignment_variants_riemannian_dataset_subject_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_alignment_variants_riemannian_dataset_subject_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_alignment_variants_weighted_dataset_ea_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_alignment_variants_weighted_dataset_ea_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_alignment_variants_zscore_before_ea_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_alignment_variants_zscore_before_ea_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_alignment_variants_zscore_between_ea_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_alignment_variants_zscore_between_ea_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_extra_variants_frequency_specific_ea_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_extra_variants_frequency_specific_ea_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_extra_variants_gaussian_ot_source_to_target_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_extra_variants_gaussian_ot_source_to_target_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_extra_variants_gaussian_ot_then_subject_ea_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_extra_variants_gaussian_ot_then_subject_ea_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_extra_variants_physionet_pivot_dataset_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_extra_variants_physionet_pivot_dataset_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_metrics_final_base_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_metrics_final_base_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_metrics_final_session_ea_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_metrics_final_session_ea_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_metrics_final_session_ea_feature_coral_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_metrics_final_session_ea_feature_coral_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_session_coral_mmd_feature_coral_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_session_coral_mmd_feature_coral_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_session_coral_mmd_mmd_resample_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_session_coral_mmd_mmd_resample_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_session_coral_mmd_session_ea_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_session_coral_mmd_session_ea_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_session_coral_mmd_session_ea_feature_coral_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_session_coral_mmd_session_ea_feature_coral_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_session_mmd_sourceselect_session_ea_feature_coral_mmd_resample_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_session_mmd_sourceselect_session_ea_feature_coral_mmd_resample_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_session_mmd_sourceselect_session_ea_mmd_resample_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_session_mmd_sourceselect_session_ea_mmd_resample_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_session_mmd_sourceselect_source_select_k10_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_session_mmd_sourceselect_source_select_k10_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_session_mmd_sourceselect_source_select_k20_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_session_mmd_sourceselect_source_select_k20_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_session_mmd_sourceselect_source_select_k30_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_session_mmd_sourceselect_source_select_k30_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_session_mmd_sourceselect_source_select_k40_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260608_session_mmd_sourceselect_source_select_k40_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260612_sfreq100_datasetea_ea_sourceweight_tau5_cross_cho2017_to_lee2019_cspnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260612_sfreq100_datasetea_ea_sourceweight_tau5_cross_lee2019_to_cho2017_cspnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260612_sfreq100_ea_adabn_con_cross_cho2017_to_lee2019_cspnetcontrastive.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260612_sfreq100_ea_adabn_con_cross_lee2019_to_cho2017_cspnetcontrastive.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260612_sfreq100_ea_adabn_cross_cho2017_to_lee2019_cspnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260612_sfreq100_ea_adabn_cross_lee2019_to_cho2017_cspnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260612_sfreq100_ea_cspnet_cross_cho2017_to_lee2019_cspnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260612_sfreq100_ea_cspnet_cross_lee2019_to_cho2017_cspnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260612_sfreq100_ea_tent_cross_cho2017_to_lee2019_cspnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260612_sfreq100_ea_tent_cross_lee2019_to_cho2017_cspnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260613_sfreq100_ea_adabn_snapx6_cross_cho2017_to_lee2019_cspnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260613_sfreq100_ea_adabn_snapx6_cross_lee2019_to_cho2017_cspnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260613_sfreq100_sessionea_session_ea_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260613_sfreq100_sessionea_session_ea_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260613_sfreq100_sessionea_session_ea_feature_coral_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260613_sfreq100_sessionea_session_ea_feature_coral_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260613_sfreq100_sessionea_session_ea_feature_coral_mmd_resample_cross_cho2017_to_lee2019_csp_lda.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260613_sfreq100_sessionea_session_ea_feature_coral_mmd_resample_cross_lee2019_to_cho2017_csp_lda.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260615_sfreq100_conformer_cross_archbaseline_cross_cho2017_to_lee2019_conformer.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260615_sfreq100_conformer_cross_archbaseline_cross_lee2019_to_cho2017_conformer.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260615_sfreq100_conformer_datasetea_subjectea_cross_cho2017_to_lee2019_conformer.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260615_sfreq100_conformer_datasetea_subjectea_cross_lee2019_to_cho2017_conformer.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260615_sfreq100_conformer_ea_tent_cross_cho2017_to_lee2019_conformer.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260615_sfreq100_conformer_ea_tent_cross_lee2019_to_cho2017_conformer.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260615_sfreq100_datasetea_subjectea_sessionea_sourceweight_tau5_cross_cho2017_to_lee2019_cspnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260615_sfreq100_datasetea_subjectea_sessionea_sourceweight_tau5_cross_lee2019_to_cho2017_cspnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260615_sfreq100_eegnet_cross_archbaseline_cross_cho2017_to_lee2019_eegnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260615_sfreq100_eegnet_cross_archbaseline_cross_lee2019_to_cho2017_eegnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260615_sfreq100_eegnet_datasetea_subjectea_cross_cho2017_to_lee2019_eegnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260615_sfreq100_eegnet_datasetea_subjectea_cross_lee2019_to_cho2017_eegnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260615_sfreq100_eegnet_ea_tent_cross_cho2017_to_lee2019_eegnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260615_sfreq100_eegnet_ea_tent_cross_lee2019_to_cho2017_eegnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_conformer_datasetea_subjectea_adabn_cross_cho2017_to_lee2019_conformer.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_conformer_datasetea_subjectea_adabn_cross_lee2019_to_cho2017_conformer.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_conformer_datasetea_subjectea_sessionea_sourceweight_tau5_cross_cho2017_to_lee2019_conformer.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_conformer_datasetea_subjectea_sessionea_sourceweight_tau5_cross_lee2019_to_cho2017_conformer.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_conformer_datasetea_subjectea_sourceweight_tau5_cross_cho2017_to_lee2019_conformer.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_conformer_datasetea_subjectea_sourceweight_tau5_cross_lee2019_to_cho2017_conformer.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_conformer_datasetea_subjectea_tent_cross_cho2017_to_lee2019_conformer.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_conformer_datasetea_subjectea_tent_cross_lee2019_to_cho2017_conformer.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_conformer_ea_adabn_cross_cho2017_to_lee2019_conformer.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_conformer_ea_adabn_cross_lee2019_to_cho2017_conformer.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_conformer_ea_snapx6_cross_cho2017_to_lee2019_conformer.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_conformer_ea_snapx6_cross_lee2019_to_cho2017_conformer.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_cspnet_datasetea_subjectea_adabn_cross_cho2017_to_lee2019_cspnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_cspnet_datasetea_subjectea_adabn_cross_lee2019_to_cho2017_cspnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_cspnet_datasetea_subjectea_tent_cross_cho2017_to_lee2019_cspnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_cspnet_datasetea_subjectea_tent_cross_lee2019_to_cho2017_cspnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_eegnet_datasetea_subjectea_adabn_cross_cho2017_to_lee2019_eegnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_eegnet_datasetea_subjectea_adabn_cross_lee2019_to_cho2017_eegnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_eegnet_datasetea_subjectea_sessionea_sourceweight_tau5_cross_cho2017_to_lee2019_eegnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_eegnet_datasetea_subjectea_sessionea_sourceweight_tau5_cross_lee2019_to_cho2017_eegnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_eegnet_datasetea_subjectea_sourceweight_tau5_cross_cho2017_to_lee2019_eegnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_eegnet_datasetea_subjectea_sourceweight_tau5_cross_lee2019_to_cho2017_eegnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_eegnet_datasetea_subjectea_tent_cross_cho2017_to_lee2019_eegnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_eegnet_datasetea_subjectea_tent_cross_lee2019_to_cho2017_eegnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_eegnet_ea_adabn_cross_cho2017_to_lee2019_eegnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_eegnet_ea_adabn_cross_lee2019_to_cho2017_eegnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_eegnet_ea_snapx6_cross_cho2017_to_lee2019_eegnet.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260616_sfreq100_eegnet_ea_snapx6_cross_lee2019_to_cho2017_eegnet.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260617_sfreq100_eegnet_datasetea_subjectea_adabn_con_cross_cho2017_to_lee2019_eegnetcontrastive.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260617_sfreq100_eegnet_datasetea_subjectea_adabn_con_cross_lee2019_to_cho2017_eegnetcontrastive.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_kmm_cross_ea_cross_cho2017_to_lee2019_kmm_tradaboost.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_kmm_cross_ea_cross_lee2019_to_cho2017_kmm_tradaboost.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_kmm_cross_noea_cross_cho2017_to_lee2019_kmm_tradaboost.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_kmm_cross_noea_cross_lee2019_to_cho2017_kmm_tradaboost.csv",
+      "rows": 52,
+      "subject_level": true
+    }
+  ]
+}

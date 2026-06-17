@@ -1,0 +1,47 @@
+method,description,dataset,n,mean,std,median,min,max
+csp_lda,"CSP-LDA baseline, no EA",cho2017,52,60.66,11.34,58.42,46.0,94.5
+csp_lda,"CSP-LDA baseline, no EA",lee2019,54,62.78,11.11,59.5,45.0,91.5
+ea_csp_lda,EA + CSP-LDA,cho2017,52,66.75,11.91,67.5,44.0,97.0
+ea_csp_lda,EA + CSP-LDA,lee2019,54,64.1,11.94,60.0,46.5,88.0
+cspnet_noea,CSPNet without EA,cho2017,52,65.77,12.11,63.75,48.5,96.5
+cspnet_noea,CSPNet without EA,lee2019,54,69.99,13.8,66.75,46.0,96.5
+ea_cspnet,EA + CSPNet (best baseline),cho2017,52,71.43,12.79,70.5,49.5,97.0
+ea_cspnet,EA + CSPNet (best baseline),lee2019,54,71.69,12.89,70.25,45.0,96.0
+ea_adabn_cspnet,EA + CSPNet + AdaBN (test-time BN update),cho2017,52,71.04,12.7,71.0,48.0,96.0
+ea_adabn_cspnet,EA + CSPNet + AdaBN (test-time BN update),lee2019,54,72.22,13.56,69.75,48.0,97.0
+ea_tent_cspnet,EA + CSPNet + TENT,cho2017,52,71.45,12.82,70.25,50.5,97.5
+ea_tent_cspnet,EA + CSPNet + TENT,lee2019,54,72.51,12.83,71.25,50.0,97.0
+ea_snapshot_adabn_cspnet,EA + CSPNet + Snapshot(x6) + AdaBN,cho2017,52,70.63,12.26,70.25,45.5,96.5
+ea_snapshot_adabn_cspnet,EA + CSPNet + Snapshot(x6) + AdaBN,lee2019,54,73.5,12.44,72.5,50.0,96.5
+ea_subjclust_tau1_cspnet,EA + CSPNet + Subject Clustering (τ=1) + AdaBN,cho2017,52,70.58,12.52,70.0,48.5,97.0
+ea_subjclust_tau1_cspnet,EA + CSPNet + Subject Clustering (τ=1) + AdaBN,lee2019,54,71.83,13.27,71.25,44.0,95.5
+ea_subjclust_tau5_cspnet,EA + CSPNet + Subject Clustering (τ=5) + AdaBN,cho2017,52,71.18,13.37,70.92,48.0,97.0
+ea_subjclust_tau5_cspnet,EA + CSPNet + Subject Clustering (τ=5) + AdaBN,lee2019,54,72.5,13.2,70.5,47.5,96.5
+ea_supcon_cspnet,EA + SupCon (Supervised Contrastive) + CSPNet,cho2017,52,71.23,12.57,71.25,49.5,97.5
+ea_supcon_cspnet,EA + SupCon (Supervised Contrastive) + CSPNet,lee2019,54,71.46,13.14,69.75,47.0,96.0
+ea_supcon_adabn_cspnet,EA + SupCon + AdaBN,cho2017,52,71.81,12.91,71.83,49.0,97.5
+ea_supcon_adabn_cspnet,EA + SupCon + AdaBN,lee2019,54,72.33,13.03,70.75,45.5,95.5
+ea_supcon_coral_cspnet,EA + SupCon + CORAL feature alignment (λ=0.1),cho2017,52,71.43,12.48,70.25,48.0,97.5
+ea_supcon_coral_cspnet,EA + SupCon + CORAL feature alignment (λ=0.1),lee2019,54,71.26,12.74,70.5,49.0,97.5
+dann_cspnet,"DANN (Domain-Adversarial, no EA)",cho2017,52,65.0,11.79,62.5,47.0,96.5
+dann_cspnet,"DANN (Domain-Adversarial, no EA)",lee2019,54,70.78,13.33,69.75,47.0,96.5
+eegnet_noea,EEGNet without EA,cho2017,52,65.93,12.38,63.75,48.0,97.0
+eegnet_noea,EEGNet without EA,lee2019,54,69.5,12.56,67.75,50.5,96.0
+ea_eegnet,EA + EEGNet,cho2017,52,69.55,12.28,68.75,48.0,97.0
+ea_eegnet,EA + EEGNet,lee2019,54,71.36,12.63,68.0,48.5,96.5
+ea_tent_eegnet,EA + EEGNet + TENT,cho2017,52,69.39,12.59,69.0,49.0,96.5
+ea_tent_eegnet,EA + EEGNet + TENT,lee2019,54,71.69,13.3,69.25,45.0,97.5
+ea_adabn_eegnet,EA + EEGNet + AdaBN,cho2017,52,69.89,12.74,69.25,44.5,96.0
+ea_adabn_eegnet,EA + EEGNet + AdaBN,lee2019,54,71.62,13.16,69.75,46.0,96.5
+conformer_noea,EEGConformer without EA,cho2017,52,63.92,11.56,62.0,47.5,98.0
+conformer_noea,EEGConformer without EA,lee2019,54,68.95,12.37,66.5,50.0,97.5
+ea_conformer,EA + EEGConformer,cho2017,52,69.37,11.65,67.5,47.5,97.5
+ea_conformer,EA + EEGConformer,lee2019,54,69.69,12.07,67.5,49.5,96.0
+ea_tent_conformer,EA + EEGConformer + TENT,cho2017,52,66.88,12.0,64.5,48.5,97.0
+ea_tent_conformer,EA + EEGConformer + TENT,lee2019,54,68.77,12.71,65.0,50.5,97.5
+ea_kmm_tradaboost,EA + KMM-TrAdaBoost (within-dataset),cho2017,52,66.53,11.64,66.0,41.0,96.0
+ea_kmm_tradaboost,EA + KMM-TrAdaBoost (within-dataset),lee2019,54,63.56,11.37,60.5,48.5,87.5
+ea_snapshot_eegnet,EA + EEGNet + Snapshot(x6) ensemble,cho2017,52,69.08,12.99,68.0,47.5,97.0
+ea_snapshot_eegnet,EA + EEGNet + Snapshot(x6) ensemble,lee2019,54,71.05,13.33,70.5,46.5,97.5
+ea_adabn_conformer,EA + EEGConformer + AdaBN (test-time BN update),cho2017,52,70.46,12.05,70.25,50.0,97.5
+ea_adabn_conformer,EA + EEGConformer + AdaBN (test-time BN update),lee2019,54,72.3,12.45,70.75,52.0,97.0

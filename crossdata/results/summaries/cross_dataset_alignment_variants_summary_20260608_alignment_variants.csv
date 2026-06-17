@@ -1,0 +1,2 @@
+variant,cho_to_lee_acc,cho_to_lee_kappa,lee_to_cho_acc,lee_to_cho_kappa,cho_to_lee_csv,lee_to_cho_csv
+riemannian_dataset_subject,64.25,0.285,58.89,0.178,/home/hkim/MI_test/results/loso_results_20260608_alignment_variants_riemannian_dataset_subject_cross_cho2017_to_lee2019_csp_lda.csv,/home/hkim/MI_test/results/loso_results_20260608_alignment_variants_riemannian_dataset_subject_cross_lee2019_to_cho2017_csp_lda.csv
