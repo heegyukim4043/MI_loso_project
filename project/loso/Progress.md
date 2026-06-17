@@ -163,6 +163,7 @@ CSP-LDA accuracy as a function of N training subjects:
 | EA + CSPNet + Snapshot(×3 T0=100) + AdaBN | `loso_results_ea_adabn_snapshot_x3_cspnet_cspnet.csv` |
 | EA + CSPNet + Snapshot(×4 T0=75) + AdaBN | `loso_results_ea_adabn_snapshot_x4_cspnet_cspnet.csv` |
 | EA + CSPNet + SubjClust(τ=1/5) + AdaBN | `ea_subjclust_tau{1,5}_cspnet.csv` |
+| EA + CSPNet + StyleAug (p=0.5) | `ea_cspnet_style_aug.csv` — Cho 68.30% / Lee 71.17% |
 | EA + SupCon (Contrastive) | `ea_supcon_*` |
 | DANN | `dann_cspnet.csv` |
 | EEGNet (no EA / +EA / +TENT / +AdaBN) | `eegnet_*.csv` |
@@ -175,8 +176,7 @@ CSP-LDA accuracy as a function of N training subjects:
 ### In Progress (as of 2026-06-17)
 | Experiment | GPU | Cho2017 | Lee2019 | Status |
 |------------|-----|---------|---------|--------|
-| EA + Conformer + Snapshot(×6 T0=50) | GPU 2 | 67.72% snap (39/52) | not started | ~20h remaining |
-| EA + CSPNet + StyleAug (p=0.5) | GPU 1 | **68.30%** (52/52 done) | 72.26% (48/54) | ~1h remaining |
+| EA + Conformer + Snapshot(×6 T0=50) | GPU 2 | 67.72% snap (52/52 done) | [07/54] ~15h | 진행 중 |
 
 > Auto-update watcher (`/tmp/forgit_final_watcher.sh`) will run `update_forgit.py` on completion.
 

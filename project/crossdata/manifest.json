@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-06-17T10:20:10",
-  "raw_cross_csv_count": 142,
-  "subject_level_rows": 6996,
-  "method_summary_rows": 176,
+  "created_at": "2026-06-17T18:06:48",
+  "raw_cross_csv_count": 145,
+  "subject_level_rows": 7156,
+  "method_summary_rows": 181,
   "files": [
     {
       "file": "results/raw_csv/cross_dataset_alignment_variants_summary_20260608_alignment_variants.csv",
@@ -682,6 +682,21 @@
     {
       "file": "results/raw_csv/loso_results_20260616_sfreq100_eegnet_ea_snapx6_cross_lee2019_to_cho2017_eegnet.csv",
       "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260617_sfreq100_conformer_datasetea_subjectea_adabn_con_cross_cho2017_to_lee2019_conformercontrastive.csv",
+      "rows": 54,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260617_sfreq100_conformer_datasetea_subjectea_adabn_con_cross_lee2019_to_cho2017_conformercontrastive.csv",
+      "rows": 52,
+      "subject_level": true
+    },
+    {
+      "file": "results/raw_csv/loso_results_20260617_sfreq100_cspnet_datasetea_subjectea_dann_cross_cho2017_to_lee2019_cspnetdann.csv",
+      "rows": 54,
       "subject_level": true
     },
     {

@@ -459,12 +459,8 @@ def train_dann_model(model, train_loader, val_loader, target_loader,
             for xb, yb in train_loader:
                 xb, yb = xb.to(DEVICE), yb.to(DEVICE)
                 optimizer.zero_grad()
-                if model_name == "cspnetcontrastive":
-                    z = model._encode(xb.unsqueeze(1))
-                    logits = model.classifier(z)
-                else:
-                    z = model.encode(xb)
-                    logits = model.classify(z)
+                z = model._encode(xb.unsqueeze(1))
+                logits = model.classifier(z)
                 loss = F.cross_entropy(logits, yb)
                 loss.backward()
                 torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
