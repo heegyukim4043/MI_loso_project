@@ -6,7 +6,6 @@ Generated from `/home/hkim/MI_test/forgit/loso` and `/home/hkim/MI_test/forgit/c
 
 | Method | Description | Cho2017 | Lee2019 | Avg | Cho n | Lee n |
 |---|---|---|---|---|---|---|
-| ea_snapshot_conformer | EA + Conformer + Snapshot(x6) ensemble | 69.34 | 75.61 | 72.47 | 52 | 9 |
 | ea_supcon_adabn_cspnet | EA + SupCon + AdaBN | 71.81 | 72.33 | 72.07 | 52 | 54 |
 | ea_snapshot_adabn_cspnet | EA + CSPNet + Snapshot(x6) + AdaBN | 70.63 | 73.50 | 72.06 | 52 | 54 |
 | ea_tent_cspnet | EA + CSPNet + TENT | 71.45 | 72.51 | 71.98 | 52 | 54 |
@@ -18,6 +17,7 @@ Generated from `/home/hkim/MI_test/forgit/loso` and `/home/hkim/MI_test/forgit/c
 | ea_adabn_conformer | EA + EEGConformer + AdaBN (test-time BN update) | 70.46 | 72.30 | 71.38 | 52 | 54 |
 | ea_supcon_coral_cspnet | EA + SupCon + CORAL feature alignment (λ=0.1) | 71.43 | 71.26 | 71.34 | 52 | 54 |
 | ea_supcon_cspnet | EA + SupCon (Supervised Contrastive) + CSPNet | 71.23 | 71.46 | 71.34 | 52 | 54 |
+| ea_subjclust_tau1_cspnet | EA + CSPNet + Subject Clustering (τ=1) + AdaBN | 70.58 | 71.83 | 71.20 | 52 | 54 |
 
 ## Cross-Dataset Summary
 
@@ -49,6 +49,6 @@ Generated from `/home/hkim/MI_test/forgit/loso` and `/home/hkim/MI_test/forgit/c
 | Conformer + SubjEA+Snapshotx6 (sfreq100) | 60.68 | 0.213 | 63.43 | 0.269 | 62.06 |
 | Conformer + SubjectEA only (sfreq100) | 63.49 | 0.270 | 60.45 | 0.209 | 61.97 |
 
-- Best LOSO average: `ea_snapshot_conformer` avg `72.47%`.
+- Best LOSO average: `ea_supcon_adabn_cspnet` avg `72.07%`.
 - Best selected cross-dataset: `DSA+SEA+SessionEA+SourceWeight+CSPNet (sfreq100)` avg `71.22%`.
 - Full cross subject-level rows: `crossdata/results/aggregated/crossdataset_subject_level_all.csv`.

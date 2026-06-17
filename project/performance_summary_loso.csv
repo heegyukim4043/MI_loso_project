@@ -1,5 +1,4 @@
 method,description,cho2017_mean_acc,lee2019_mean_acc,avg_mean_acc,cho2017_n,lee2019_n
-ea_snapshot_conformer,EA + Conformer + Snapshot(x6) ensemble,69.34,75.61,72.47,52,9
 ea_supcon_adabn_cspnet,EA + SupCon + AdaBN,71.81,72.33,72.07,52,54
 ea_snapshot_adabn_cspnet,EA + CSPNet + Snapshot(x6) + AdaBN,70.63,73.50,72.06,52,54
 ea_tent_cspnet,EA + CSPNet + TENT,71.45,72.51,71.98,52,54
@@ -15,6 +14,7 @@ ea_subjclust_tau1_cspnet,EA + CSPNet + Subject Clustering (τ=1) + AdaBN,70.58,7
 ea_adabn_eegnet,EA + EEGNet + AdaBN,69.89,71.62,70.75,52,54
 ea_tent_eegnet,EA + EEGNet + TENT,69.39,71.69,70.54,52,54
 ea_eegnet,EA + EEGNet,69.55,71.36,70.45,52,54
+ea_snapshot_conformer,EA + Conformer + Snapshot(x6) ensemble,69.34,70.77,70.06,52,54
 ea_snapshot_eegnet,EA + EEGNet + Snapshot(x6) ensemble,69.08,71.05,70.06,52,54
 ea_cspnet_style_aug,EA + CSPNet + Covariance Style Transfer Augmentation (p=0.5),68.30,71.17,69.73,52,54
 ea_conformer,EA + EEGConformer,69.37,69.69,69.53,52,54

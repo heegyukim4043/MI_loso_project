@@ -32,7 +32,7 @@ ea_snapshot_adabn_x3_cspnet,ea_snapshot_adabn_x3_cspnet,lee2019,54,72.59,12.98,7
 ea_snapshot_adabn_x4_cspnet,ea_snapshot_adabn_x4_cspnet,cho2017,52,70.06,12.1,69.0,47.5,96.0
 ea_snapshot_adabn_x4_cspnet,ea_snapshot_adabn_x4_cspnet,lee2019,54,72.94,12.81,70.0,44.5,97.5
 ea_snapshot_conformer,EA + Conformer + Snapshot(x6) ensemble,cho2017,52,69.34,12.15,68.25,49.0,98.0
-ea_snapshot_conformer,EA + Conformer + Snapshot(x6) ensemble,lee2019,9,75.61,11.06,77.0,53.5,91.0
+ea_snapshot_conformer,EA + Conformer + Snapshot(x6) ensemble,lee2019,54,70.77,12.47,70.0,51.0,96.0
 ea_snapshot_eegnet,EA + EEGNet + Snapshot(x6) ensemble,cho2017,52,69.08,12.87,68.0,47.5,97.0
 ea_snapshot_eegnet,EA + EEGNet + Snapshot(x6) ensemble,lee2019,54,71.05,13.21,70.5,46.5,97.5
 ea_subjclust_tau1_cspnet,EA + CSPNet + Subject Clustering (τ=1) + AdaBN,cho2017,52,70.58,12.4,70.0,48.5,97.0
