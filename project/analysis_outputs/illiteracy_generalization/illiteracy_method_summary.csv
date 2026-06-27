@@ -1,0 +1,9 @@
+baseline_group,method,n,mean_acc,mean_delta,pass70_rate_pct,responder_rate_pct,harm_rate_pct
+Original<70,EA,206,63.96,4.39,24.3,74.8,21.4
+Original>=70,EA,112,82.6,0.84,89.3,53.6,39.3
+Original<70,TENT,206,63.44,3.87,25.7,70.4,25.7
+Original>=70,TENT,112,82.45,0.69,90.2,57.1,34.8
+Original<70,AdaBN,206,64.41,4.84,27.7,75.7,23.3
+Original>=70,AdaBN,112,83.9,2.13,96.4,67.9,31.2
+Original<70,Snapshot,206,64.06,4.49,26.7,73.8,23.8
+Original>=70,Snapshot,112,83.05,1.29,93.8,58.9,34.8

@@ -1,0 +1,13 @@
+direction,baseline_group,method,n,mean_acc,mean_delta,pass70_rate_pct,responder_rate_pct,harm_rate_pct
+cho2017->lee2019,Baseline<70,DatasetEA+SubjectEA+CSP-LDA,51,66.78,12.78,39.2,92.2,5.9
+cho2017->lee2019,Baseline>=70,DatasetEA+SubjectEA+CSP-LDA,3,90.5,15.83,100.0,100.0,0.0
+cho2017->lee2019,Baseline<70,SessionEA+CSP-LDA,51,69.26,15.26,39.2,94.1,5.9
+cho2017->lee2019,Baseline>=70,SessionEA+CSP-LDA,3,93.33,18.67,100.0,100.0,0.0
+cho2017->lee2019,Baseline<70,DSA+SEA+SessionEA+SourceWeight+CSPNet,51,72.01,18.01,56.9,96.1,3.9
+cho2017->lee2019,Baseline>=70,DSA+SEA+SessionEA+SourceWeight+CSPNet,3,94.17,19.5,100.0,100.0,0.0
+lee2019->cho2017,Baseline<70,DatasetEA+SubjectEA+CSP-LDA,51,63.51,11.18,19.6,92.2,7.8
+lee2019->cho2017,Baseline>=70,DatasetEA+SubjectEA+CSP-LDA,1,86.5,12.0,100.0,100.0,0.0
+lee2019->cho2017,Baseline<70,SessionEA+CSP-LDA,51,64.9,12.57,35.3,88.2,9.8
+lee2019->cho2017,Baseline>=70,SessionEA+CSP-LDA,1,91.0,16.5,100.0,100.0,0.0
+lee2019->cho2017,Baseline<70,DSA+SEA+SessionEA+SourceWeight+CSPNet,51,68.71,16.38,41.2,94.1,3.9
+lee2019->cho2017,Baseline>=70,DSA+SEA+SessionEA+SourceWeight+CSPNet,1,94.5,20.0,100.0,100.0,0.0

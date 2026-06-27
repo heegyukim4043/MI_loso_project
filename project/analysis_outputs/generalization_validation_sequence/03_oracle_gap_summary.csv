@@ -1,0 +1,6 @@
+method,mean_acc,coverage_ge70_pct,mean_regret_to_oracle,subjects_where_method_is_best_pct
+EA,70.52,47.2,1.91,27.4
+TENT,70.13,47.2,2.3,13.2
+AdaBN,71.27,50.0,1.16,34.9
+Snapshot,70.75,49.1,1.69,24.5
+OracleBest(EA/TENT/AdaBN/Snapshot),72.43,56.6,0.0,100.0

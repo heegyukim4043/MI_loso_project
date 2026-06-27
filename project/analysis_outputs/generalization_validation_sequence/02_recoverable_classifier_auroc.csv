@@ -1,0 +1,4 @@
+evaluation,n,positive_recovered,auroc
+pooled_5fold_cv,68,23,0.9004830917874396
+leave_dataset_out_test_cho2017,38,15,0.6898550724637681
+leave_dataset_out_test_lee2019,30,8,0.9772727272727273

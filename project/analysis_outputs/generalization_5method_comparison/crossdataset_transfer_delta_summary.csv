@@ -1,0 +1,5 @@
+comparison,train_dataset,test_dataset,n,mean_delta,median_delta,responder_rate_pct,harm_rate_pct
+CrossCSP_to_DatasetEA_SubjectEA,cho2017,lee2019,54,12.95,11.75,92.6,5.6
+CrossCSP_to_DatasetEA_SubjectEA,lee2019,cho2017,52,11.19,9.0,92.3,7.7
+CrossCSP_to_SubjectEA,cho2017,lee2019,54,-2.28,-0.5,27.8,61.1
+CrossCSP_to_SubjectEA,lee2019,cho2017,52,6.48,5.05,82.7,17.3

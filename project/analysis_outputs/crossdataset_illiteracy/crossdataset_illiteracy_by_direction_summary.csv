@@ -1,0 +1,5 @@
+direction,group,n_subjects,mean_baseline,mean_best_combined,mean_best_delta,any_combined_reaches_70,persistent_fail_all_combined,mean_n_combined_pass70
+cho2017->lee2019,Baseline<70,51,54.0,72.95,18.95,29/51 (56.9%),22/51 (43.1%),1.35
+cho2017->lee2019,Baseline>=70,3,74.67,95.0,20.33,3/3 (100.0%),0/3 (0.0%),3.0
+lee2019->cho2017,Baseline<70,51,52.33,69.3,16.97,24/51 (47.1%),27/51 (52.9%),0.96
+lee2019->cho2017,Baseline>=70,1,74.5,94.5,20.0,1/1 (100.0%),0/1 (0.0%),3.0

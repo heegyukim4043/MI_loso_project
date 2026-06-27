@@ -1,0 +1,5 @@
+reference,method,n_subject_backbone,mean_delta,median_delta,p10_delta,min_delta,max_delta,responder_rate_pct,large_benefit_ge5pp_pct,harm_rate_pct
+Original,EA,318,3.14,2.5,-3.0,-11.0,33.0,67.3,34.0,27.7
+Original,TENT,318,2.75,2.5,-4.5,-16.0,32.5,65.7,30.8,28.9
+Original,AdaBN,318,3.89,3.0,-2.5,-15.0,32.0,73.0,36.2,26.1
+Original,Snapshot,318,3.36,2.5,-3.5,-22.5,29.5,68.6,33.0,27.7

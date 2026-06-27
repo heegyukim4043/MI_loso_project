@@ -1,0 +1,13 @@
+dataset,feature,tertile,n,mean_original,mean_best_adaptive,persistent_rate_pct,recovery_rate_among_original_lt70_pct,EA_delta_original,TENT_delta_original,AdaBN_delta_original,Snapshot_delta_original
+cho2017,csp_centroid_dist,low,18,58.87,63.36,77.8,17.6,3.45,2.48,3.44,2.55
+cho2017,csp_centroid_dist,mid,16,64.15,71.86,25.0,66.7,5.53,5.65,6.8,5.57
+cho2017,csp_centroid_dist,high,18,72.49,79.41,27.8,44.4,5.82,4.15,5.7,5.43
+cho2017,csp_fisher_ratio,low,17,60.92,66.08,52.9,35.7,4.13,3.35,4.37,2.99
+cho2017,csp_fisher_ratio,mid,17,64.01,69.54,52.9,30.8,3.44,3.05,4.24,3.62
+cho2017,csp_fisher_ratio,high,18,70.39,78.56,27.8,54.5,7.03,5.61,7.05,6.69
+lee2019,csp_centroid_dist,low,18,59.65,63.05,77.8,17.6,1.23,1.31,2.14,2.06
+lee2019,csp_centroid_dist,mid,18,68.19,72.81,33.3,40.0,2.51,2.26,3.16,3.37
+lee2019,csp_centroid_dist,high,18,80.6,84.05,11.1,33.3,0.56,0.95,2.4,1.44
+lee2019,csp_fisher_ratio,low,18,59.28,62.61,83.3,6.2,1.23,1.36,2.19,2.08
+lee2019,csp_fisher_ratio,mid,18,69.53,73.69,33.3,40.0,2.8,2.21,2.94,2.96
+lee2019,csp_fisher_ratio,high,18,79.64,83.6,5.6,75.0,0.27,0.95,2.56,1.82

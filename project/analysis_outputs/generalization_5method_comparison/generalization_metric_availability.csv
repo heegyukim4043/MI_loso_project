@@ -1,0 +1,6 @@
+metric_family,availability,files,use_in_paper
+Subject robustness / coverage,Directly available,"loso_subject_robustness_metrics.csv, coverage_threshold_metrics.csv","Main table: mean, SD, P10, worst, >=70% coverage"
+Transfer benefit metrics,Directly available,loso_paired_subject_deltas.csv,"Responder, >=5pp benefit, harm rate, delta distribution"
+Riemannian domain-gap / predictor,"Available as predictor, not as full pre/post gap for every method",transfer_benefit_loso_spearman.csv,Covariance geometry predicts which subjects benefit
+Generalization gap,Partial,"coverage_threshold_metrics.csv, crossdataset transfer outputs",LOSO vs cross-dataset gap is available; within-subject/session gap requires matching results
+Calibration / risk-coverage,Not available from current aggregate CSV,Requires trial-level probability/logit/confidence outputs,Future/optional analysis unless inference probabilities are regenerated

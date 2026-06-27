@@ -1,0 +1,3 @@
+group,n_subjects,mean_baseline,mean_best_combined,mean_best_delta,any_combined_reaches_70,persistent_fail_all_combined,mean_n_combined_pass70
+Baseline<70,102,53.16,71.13,17.96,53/102 (52.0%),49/102 (48.0%),1.16
+Baseline>=70,4,74.62,94.88,20.25,4/4 (100.0%),0/4 (0.0%),3.0

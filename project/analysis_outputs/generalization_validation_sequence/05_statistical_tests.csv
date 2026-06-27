@@ -1,0 +1,8 @@
+comparison,n,mean_delta,wilcoxon_p,coverage_gain_count,coverage_loss_count,mcnemar_p,wilcoxon_q_fdr,mcnemar_q_fdr
+EA vs Original,106,3.13732,0.0,14,2,0.00418,0.0,0.00976
+TENT vs Original,106,2.7479,0.0,16,4,0.01182,0.0,0.02068
+AdaBN vs Original,106,3.88522,0.0,17,2,0.00073,0.0,0.00459
+Snapshot vs Original,106,3.362,0.0,16,2,0.00131,0.0,0.00459
+TENT vs EA,106,-0.38941,0.04733,5,5,1.0,0.05522,1.0
+AdaBN vs EA,106,0.7479,0.01579,5,2,0.45312,0.02211,0.63438
+Snapshot vs EA,106,0.22469,0.78245,8,6,0.79053,0.78245,0.92228

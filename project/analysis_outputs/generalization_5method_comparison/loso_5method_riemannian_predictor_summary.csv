@@ -1,0 +1,9 @@
+candidate_family,dataset,baseline,candidate,feature,n,rho,p,interpretation
+EA,cho2017,cspnet_noea,ea_cspnet,source_pool_knn10_dist,52,0.419,0.002,larger covariance distance predicts larger benefit
+EA,lee2019,cspnet_noea,ea_cspnet,baseline_acc,54,-0.347,0.01,weaker baseline subjects benefit more
+EA+TENT,cho2017,ea_eegnet,ea_tent_eegnet,source_pool_knn3_dist,52,0.18,0.2023,larger covariance distance predicts larger benefit
+EA+TENT,lee2019,ea_eegnet,ea_tent_eegnet,baseline_acc,54,0.249,0.0694,feature predicts subject-level benefit
+EA+AdaBN,cho2017,ea_conformer,ea_adabn_conformer,source_pool_mean_dist,52,0.308,0.0265,larger covariance distance predicts larger benefit
+EA+AdaBN,lee2019,ea_conformer,ea_adabn_conformer,source_pool_knn10_dist,54,-0.196,0.1558,feature predicts subject-level benefit
+EA+Snapshot,cho2017,ea_cspnet,ea_snapshot_adabn_cspnet,baseline_acc,52,-0.368,0.0073,weaker baseline subjects benefit more
+EA+Snapshot,lee2019,ea_cspnet,ea_snapshot_adabn_cspnet,baseline_acc,54,-0.353,0.0089,weaker baseline subjects benefit more

@@ -1,0 +1,5 @@
+best_method,n_subjects,pct
+AdaBN,37,34.9
+EA,29,27.4
+Snapshot,26,24.5
+TENT,14,13.2

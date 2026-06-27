@@ -1,0 +1,9 @@
+scope,method,direction,n,mean_acc,coverage_ge70_pct
+CrossDataset coverage,CSP-LDA baseline,Cho->Lee,54,55.15,5.6
+CrossDataset coverage,CSP-LDA baseline,Lee->Cho,52,52.76,1.9
+CrossDataset coverage,DatasetEA+SubjectEA+CSP-LDA,Cho->Lee,54,68.96,40.7
+CrossDataset coverage,DatasetEA+SubjectEA+CSP-LDA,Lee->Cho,52,65.1,30.8
+CrossDataset coverage,SessionEA+CSP-LDA,Cho->Lee,54,70.6,42.6
+CrossDataset coverage,SessionEA+CSP-LDA,Lee->Cho,52,65.4,36.5
+CrossDataset coverage,DSA+SEA+SessionEA+SourceWeight+CSPNet,Cho->Lee,54,73.24,59.3
+CrossDataset coverage,DSA+SEA+SessionEA+SourceWeight+CSPNet,Lee->Cho,52,69.21,42.3

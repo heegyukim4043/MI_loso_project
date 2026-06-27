@@ -1,0 +1,3 @@
+group,n_subject_backbone,mean_original,mean_best_adaptive,mean_best_delta,any_method_reaches_70,persistent_fail_all_methods,mean_n_methods_pass70
+Original<70,206,59.57,66.71,7.14,84/206 (40.8%),122/206 (59.2%),1.04
+Original>=70,112,81.76,85.61,3.85,110/112 (98.2%),2/112 (1.8%),3.7

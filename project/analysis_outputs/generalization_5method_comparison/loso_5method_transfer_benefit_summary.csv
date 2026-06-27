@@ -1,0 +1,5 @@
+scope,delta_reference,method_family,dataset,n_backbones,mean_delta,median_delta,p10_delta,responder_rate_pct,large_benefit_ge5pp_pct,harm_rate_pct
+LOSO,NoEA for EA; EA for TENT/AdaBN/Snapshot,EA,all,3,3.17,2.8,-2.93,67.5,34.2,27.6
+LOSO,NoEA for EA; EA for TENT/AdaBN/Snapshot,EA+TENT,all,3,-0.4,-0.09,-4.67,44.2,5.9,49.5
+LOSO,NoEA for EA; EA for TENT/AdaBN/Snapshot,EA+AdaBN,all,3,0.74,0.54,-3.61,50.9,15.1,42.9
+LOSO,NoEA for EA; EA for TENT/AdaBN/Snapshot,EA+Snapshot,all,3,0.21,-0.04,-4.52,47.1,11.2,48.2
