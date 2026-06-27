@@ -133,7 +133,15 @@ With `--backup_dir`, the runner copies the live summary and every matching resul
 
 ## 5. Push Verified Results To GitHub
 
-Run this only after checking the backup folder contains the expected summary and CSV files.
+Run this only after checking the backup folder contains the expected summary and CSV files. In Colab, enter a GitHub token with `contents:write` permission at runtime; do not save the token in the notebook.
+
+```python
+from getpass import getpass
+import os
+
+if not os.environ.get("GITHUB_TOKEN"):
+    os.environ["GITHUB_TOKEN"] = getpass("GitHub token with contents:write permission: ")
+```
 
 ```bash
 cd /content/MI_loso_project
@@ -146,5 +154,5 @@ git config user.name "heegyukim4043"
 git config user.email "55726335+heegyukim4043@users.noreply.github.com"
 git add project/crossdata/colab_dsa_sea_snapshot_20260628.md project/crossdata/results/loso_results_20260628_colab_dsa_sea_snapshot_*.csv
 git commit -m "Add Colab DSA SEA Snapshot results"
-git push origin master
+git -c http.extraHeader="AUTHORIZATION: bearer $GITHUB_TOKEN" push origin master
 ```
