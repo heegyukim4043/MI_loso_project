@@ -33,7 +33,12 @@ from datetime import datetime
 sys.path.insert(0, os.path.dirname(__file__))
 from cspnet            import CSPNet, fit_csp_layer
 from cspnet_contrastive import CSPNetContrastive, SupConLoss, fit_csp_layer_contrastive
-from cspnet_dann      import CSPNetDANN, fit_csp_layer_dann, grl_lambda
+try:
+    from cspnet_dann import CSPNetDANN, fit_csp_layer_dann, grl_lambda
+except ModuleNotFoundError:
+    CSPNetDANN = None
+    fit_csp_layer_dann = None
+    grl_lambda = None
 from eegnet            import EEGNet
 from conformer         import EEGConformer
 from adabn             import apply_adabn, snapshot_bn_stats, adabn_summary
@@ -255,6 +260,8 @@ def build_model(model_name, n_channels, n_times, temperature=0.07, n_domains=2):
             proj_dim=64, proj_hidden=128, temperature=temperature,
         ).to(DEVICE)
     if model_name == "cspnetdann":
+        if CSPNetDANN is None:
+            raise ImportError("cspnetdann was selected, but cspnet_dann.py is not available.")
         return CSPNetDANN(
             n_channels=n_channels, n_times=n_times, n_subjects=n_domains,
             n_csp=8, F1=8, F2=16, dropout=0.25, trainable_csp=True,
@@ -290,6 +297,8 @@ def init_csp(model, model_name, X_train, y_train):
     elif model_name == "cspnetcontrastive":
         fit_csp_layer_contrastive(model, X_train, y_train)
     elif model_name == "cspnetdann":
+        if fit_csp_layer_dann is None:
+            raise ImportError("cspnetdann was selected, but fit_csp_layer_dann is not available.")
         fit_csp_layer_dann(model, X_train, y_train)
 
 
