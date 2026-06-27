@@ -130,3 +130,21 @@ With `--backup_dir`, the runner copies the live summary and every matching resul
 ```text
 /content/drive/MyDrive/MI_loso_project/colab_results/dsa_sea_snapshot_20260628/
 ```
+
+## 5. Push Verified Results To GitHub
+
+Run this only after checking the backup folder contains the expected summary and CSV files.
+
+```bash
+cd /content/MI_loso_project
+git pull --ff-only origin master
+mkdir -p project/crossdata/results
+cp -v "$MI_BACKUP_DIR"/colab_dsa_sea_snapshot_20260628.md project/crossdata/colab_dsa_sea_snapshot_20260628.md
+cp -v "$MI_BACKUP_DIR"/loso_results_20260628_colab_dsa_sea_snapshot_*.csv project/crossdata/results/
+git status --short
+git config user.name "heegyukim4043"
+git config user.email "55726335+heegyukim4043@users.noreply.github.com"
+git add project/crossdata/colab_dsa_sea_snapshot_20260628.md project/crossdata/results/loso_results_20260628_colab_dsa_sea_snapshot_*.csv
+git commit -m "Add Colab DSA SEA Snapshot results"
+git push origin master
+```
