@@ -1,0 +1,4 @@
+scope,n,mean_loso_best,mean_cross_best,mean_diff_cross_minus_loso,ci95_low,ci95_high,p_boot_cross_ge_loso,cross_ge_loso_subject_pct
+pooled,106,72.542,72.069,-0.474,-1.244,0.287,0.1123,50.0
+cho2017->lee2019,54,73.42,74.25,0.83,-0.046,1.722,0.9688,63.0
+lee2019->cho2017,52,71.631,69.804,-1.828,-2.98,-0.681,0.001,36.5

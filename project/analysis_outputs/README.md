@@ -6,6 +6,8 @@ This directory contains post-hoc analyses for LOSO and cross-dataset MI generali
 
 - `generalization_validation_sequence/generalization_validation_sequence_report.md`
   - Separability tertiles, recoverable-vs-persistent classifier, oracle gap, harm analysis, and statistical tests.
+- `additional_generalization_tests/additional_generalization_tests_report.md`
+  - Bootstrap CI for Cross-vs-LOSO best, McNemar coverage tests, DatasetEA Riemannian pre/post gap, and source-pool scaling.
 - `eeg_markers_generalization/eeg_marker_generalization_report.md`
   - Mu/beta task-window lateralization markers and their relation to generalization outcomes.
 - `class_feature_similarity/class_feature_similarity_report.md`

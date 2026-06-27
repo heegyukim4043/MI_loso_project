@@ -1,0 +1,4 @@
+scope,n,both_pass,neither_pass,cross_only_pass,loso_only_pass,mcnemar_p,loso_coverage_pct,cross_coverage_pct
+pooled,106,53,41,4,8,0.3876953125,57.5,53.8
+cho2017->lee2019,54,31,21,1,1,1.0,59.3,59.3
+lee2019->cho2017,52,22,20,3,7,0.34375,55.8,48.1

@@ -1,0 +1,4 @@
+metric,n_common_channels,pre_datasetea,post_datasetea,reduction_pct
+dataset_centroid_distance,48,5.48041991856036,0.00890975292874406,99.83742572537973
+all_cross_subject_pair_distance_mean,48,11.425081252549308,10.319344002557521,9.678156553548018
+all_cross_subject_pair_distance_median,48,11.081305316761874,9.894761448698215,10.707618228593171
