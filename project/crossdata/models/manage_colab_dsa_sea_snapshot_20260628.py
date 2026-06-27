@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import csv
 import os
+import shutil
 import subprocess
 import sys
 from datetime import datetime
@@ -19,6 +20,7 @@ SUMMARY = PROJECT / "colab_dsa_sea_snapshot_20260628.md"
 
 DEFAULT_RUN_PREFIX = "20260628_colab_dsa_sea_snapshot"
 DEFAULT_PREP = PROJECT / "preprocessed_sfreq100"
+DEFAULT_BACKUP = os.environ.get("MI_BACKUP_DIR")
 MODELS = ("cspnet", "eegnet", "conformer")
 SNAPSHOT_T0 = 50
 
@@ -68,7 +70,21 @@ def run_id_for(prefix: str, model: str) -> str:
     return f"{prefix}_{model}"
 
 
-def write_summary(prefix: str, models: list[str], note: str = "") -> None:
+def backup_outputs(prefix: str, backup_dir: Optional[Path]) -> None:
+    if backup_dir is None:
+        return
+    backup_dir.mkdir(parents=True, exist_ok=True)
+    copied = 0
+    if SUMMARY.exists():
+        shutil.copy2(SUMMARY, backup_dir / SUMMARY.name)
+        copied += 1
+    for path in sorted(RESULTS.glob(f"loso_results_{prefix}_*_cross_*.csv")):
+        shutil.copy2(path, backup_dir / path.name)
+        copied += 1
+    print(f"[backup] {copied} files -> {backup_dir}", flush=True)
+
+
+def write_summary(prefix: str, note: str = "", backup_dir: Optional[Path] = None) -> None:
     lines = [
         "# Colab DSA+SEA+Snapshot Cross-Dataset Queue",
         "",
@@ -81,7 +97,7 @@ def write_summary(prefix: str, models: list[str], note: str = "") -> None:
         "| Model | Cho->Lee | Lee->Cho | Avg Snap | Avg Snap+AdaBN |",
         "|---|---:|---:|---:|---:|",
     ]
-    for model in models:
+    for model in MODELS:
         run_id = run_id_for(prefix, model)
         cho = read_metric(result_csv(run_id, "cho2017", "lee2019", model))
         lee = read_metric(result_csv(run_id, "lee2019", "cho2017", model))
@@ -94,6 +110,7 @@ def write_summary(prefix: str, models: list[str], note: str = "") -> None:
         lines += ["", "## Queue Status", "", note]
     SUMMARY.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"[summary] {SUMMARY}", flush=True)
+    backup_outputs(prefix, backup_dir)
 
 
 def should_skip(path: Path, expected_subjects: int) -> bool:
@@ -158,6 +175,7 @@ def main() -> int:
     parser.add_argument("--models", nargs="+", choices=MODELS, default=["cspnet"])
     parser.add_argument("--direction", choices=["cho2lee", "lee2cho", "both"], default="both")
     parser.add_argument("--preprocessed_dir", type=Path, default=Path(os.environ.get("MI_PREPROCESSED_DIR", DEFAULT_PREP)))
+    parser.add_argument("--backup_dir", type=Path, default=Path(DEFAULT_BACKUP) if DEFAULT_BACKUP else None)
     parser.add_argument("--run_prefix", default=DEFAULT_RUN_PREFIX)
     parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
@@ -171,15 +189,15 @@ def main() -> int:
             "Pass --preprocessed_dir or set MI_PREPROCESSED_DIR."
         )
 
-    write_summary(args.run_prefix, args.models, "- Queue started.")
+    write_summary(args.run_prefix, "- Queue started.", args.backup_dir)
     for model in args.models:
         for train, test in direction_pairs(args.direction):
             rc = run_one(model, train, test, args.run_prefix, args.preprocessed_dir, args.force)
-            write_summary(args.run_prefix, args.models, f"- Last run: `{model}` `{train}->{test}` exit={rc}.")
+            write_summary(args.run_prefix, f"- Last run: `{model}` `{train}->{test}` exit={rc}.", args.backup_dir)
             if rc != 0:
-                write_summary(args.run_prefix, args.models, f"- Queue stopped at `{model}` `{train}->{test}` exit={rc}.")
+                write_summary(args.run_prefix, f"- Queue stopped at `{model}` `{train}->{test}` exit={rc}.", args.backup_dir)
                 return rc
-    write_summary(args.run_prefix, args.models, "- Queue completed.")
+    write_summary(args.run_prefix, "- Queue completed.", args.backup_dir)
     return 0
 
 

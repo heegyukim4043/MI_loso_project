@@ -53,6 +53,7 @@ Set data path:
 ```python
 import os
 os.environ["MI_PREPROCESSED_DIR"] = "/content/drive/MyDrive/MI_loso_project/project/crossdata/preprocessed_sfreq100"
+os.environ["MI_BACKUP_DIR"] = "/content/drive/MyDrive/MI_loso_project/colab_results/dsa_sea_snapshot_20260628"
 os.environ["MI_N_TIMES"] = "201"
 ```
 
@@ -70,14 +71,16 @@ Run CSPNet first, split by direction to reduce Colab interruption risk.
 python manage_colab_dsa_sea_snapshot_20260628.py \
   --models cspnet \
   --direction cho2lee \
-  --preprocessed_dir "$MI_PREPROCESSED_DIR"
+  --preprocessed_dir "$MI_PREPROCESSED_DIR" \
+  --backup_dir "$MI_BACKUP_DIR"
 ```
 
 ```bash
 python manage_colab_dsa_sea_snapshot_20260628.py \
   --models cspnet \
   --direction lee2cho \
-  --preprocessed_dir "$MI_PREPROCESSED_DIR"
+  --preprocessed_dir "$MI_PREPROCESSED_DIR" \
+  --backup_dir "$MI_BACKUP_DIR"
 ```
 
 Then EEGNet:
@@ -86,7 +89,8 @@ Then EEGNet:
 python manage_colab_dsa_sea_snapshot_20260628.py \
   --models eegnet \
   --direction both \
-  --preprocessed_dir "$MI_PREPROCESSED_DIR"
+  --preprocessed_dir "$MI_PREPROCESSED_DIR" \
+  --backup_dir "$MI_BACKUP_DIR"
 ```
 
 Then Conformer:
@@ -95,7 +99,8 @@ Then Conformer:
 python manage_colab_dsa_sea_snapshot_20260628.py \
   --models conformer \
   --direction both \
-  --preprocessed_dir "$MI_PREPROCESSED_DIR"
+  --preprocessed_dir "$MI_PREPROCESSED_DIR" \
+  --backup_dir "$MI_BACKUP_DIR"
 ```
 
 Use `--force` only when rerunning after a failed or interrupted attempt.
@@ -120,11 +125,8 @@ Live summary:
 /content/MI_loso_project/project/crossdata/colab_dsa_sea_snapshot_20260628.md
 ```
 
-Save results to Drive after each completed direction:
+With `--backup_dir`, the runner copies the live summary and every matching result CSV to Drive after each run and at queue completion. The backup folder should contain one summary plus up to six CSV files:
 
-```bash
-SAVE_DIR=/content/drive/MyDrive/MI_loso_project/colab_results/dsa_sea_snapshot_20260628
-mkdir -p "$SAVE_DIR"
-cp -v /content/MI_loso_project/project/crossdata/colab_dsa_sea_snapshot_20260628.md "$SAVE_DIR"/ 2>/dev/null || true
-cp -v /content/MI_loso_project/project/crossdata/results/loso_results_20260628_colab_dsa_sea_snapshot_*_cross_*.csv "$SAVE_DIR"/ 2>/dev/null || true
+```text
+/content/drive/MyDrive/MI_loso_project/colab_results/dsa_sea_snapshot_20260628/
 ```
