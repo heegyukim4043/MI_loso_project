@@ -1,16 +1,33 @@
-# Colab Run: DSA+SEA+Snapshot Cross-Dataset
+# Colab T4 Run: DSA+SEA+Snapshot Cross-Dataset
 
-This is the priority run for filling the missing cross-dataset Snapshot cells:
+Use this when `cho2017.npz` and `lee2019.npz` are already on Google Drive.
+This flow does not download MOABB data and does not run preprocessing.
 
-- CSPNet + DatasetEA + SubjectEA + Snapshot
-- EEGNet + DatasetEA + SubjectEA + Snapshot
-- Conformer + DatasetEA + SubjectEA + Snapshot
+Target runtime: `T4 GPU`.
 
-The runner is resumable. It skips a direction if the expected CSV already exists with complete `snap_acc` rows.
+## 1. Required Data
 
-## 1. Setup
+Expected Drive folder:
 
-Mount Google Drive and keep the repository plus preprocessed data on Drive so outputs survive runtime resets.
+```text
+/content/drive/MyDrive/MI_loso_project/project/crossdata/preprocessed_sfreq100/
+```
+
+Required files:
+
+```text
+cho2017.npz
+lee2019.npz
+```
+
+Expected shapes:
+
+```text
+cho2017: X=(10520, 64, 201), subjects=52, sfreq=100
+lee2019: X=(5400, 62, 201), subjects=54, sfreq=100
+```
+
+## 2. Colab Setup
 
 ```python
 from google.colab import drive
@@ -18,78 +35,52 @@ drive.mount('/content/drive')
 ```
 
 ```bash
-cd /content/drive/MyDrive
+cd /content
 git clone https://github.com/heegyukim4043/MI_loso_project.git
-cd MI_loso_project/project/crossdata/models
+cd /content/MI_loso_project/project/crossdata/models
 ```
 
-If the repo already exists:
+If the repo already exists in the current runtime:
 
 ```bash
-cd /content/drive/MyDrive/MI_loso_project
+cd /content/MI_loso_project
 git pull
-cd project/crossdata/models
+cd /content/MI_loso_project/project/crossdata/models
 ```
 
-Install only missing packages. A typical Colab runtime already has PyTorch, NumPy, pandas, and scikit-learn.
+Set data path:
+
+```python
+import os
+os.environ["MI_PREPROCESSED_DIR"] = "/content/drive/MyDrive/MI_loso_project/project/crossdata/preprocessed_sfreq100"
+os.environ["MI_N_TIMES"] = "201"
+```
+
+Verify:
 
 ```bash
-pip install moabb mne pyriemann einops
-```
-
-## 2. Data Path
-
-`cross_dataset.py` expects:
-
-```text
-cho2017.npz
-lee2019.npz
-```
-
-under `MI_PREPROCESSED_DIR`.
-
-Recommended Drive layout:
-
-```text
-/content/drive/MyDrive/MI_loso_project/project/crossdata/preprocessed_sfreq100/cho2017.npz
-/content/drive/MyDrive/MI_loso_project/project/crossdata/preprocessed_sfreq100/lee2019.npz
-```
-
-Then set:
-
-```bash
-export MI_PREPROCESSED_DIR=/content/drive/MyDrive/MI_loso_project/project/crossdata/preprocessed_sfreq100
-export MI_N_TIMES=201
+ls -lh "$MI_PREPROCESSED_DIR"
 ```
 
 ## 3. Priority Runs
 
-### Priority 1: CSPNet
-
-Run this first. It is the most important missing cell.
-
-```bash
-python manage_colab_dsa_sea_snapshot_20260628.py \
-  --models cspnet \
-  --direction both \
-  --preprocessed_dir "$MI_PREPROCESSED_DIR"
-```
-
-If the runtime is unstable, split by direction:
+Run CSPNet first, split by direction to reduce Colab interruption risk.
 
 ```bash
 python manage_colab_dsa_sea_snapshot_20260628.py \
   --models cspnet \
   --direction cho2lee \
   --preprocessed_dir "$MI_PREPROCESSED_DIR"
+```
 
+```bash
 python manage_colab_dsa_sea_snapshot_20260628.py \
   --models cspnet \
   --direction lee2cho \
   --preprocessed_dir "$MI_PREPROCESSED_DIR"
 ```
 
-### Priority 2: EEGNet
+Then EEGNet:
 
 ```bash
 python manage_colab_dsa_sea_snapshot_20260628.py \
@@ -98,9 +89,7 @@ python manage_colab_dsa_sea_snapshot_20260628.py \
   --preprocessed_dir "$MI_PREPROCESSED_DIR"
 ```
 
-### Priority 3: Conformer
-
-Run only after CSPNet and EEGNet are complete, or when Colab assigns an A100/L4.
+Then Conformer:
 
 ```bash
 python manage_colab_dsa_sea_snapshot_20260628.py \
@@ -109,63 +98,33 @@ python manage_colab_dsa_sea_snapshot_20260628.py \
   --preprocessed_dir "$MI_PREPROCESSED_DIR"
 ```
 
-## 4. One-Shot All Models
+Use `--force` only when rerunning after a failed or interrupted attempt.
 
-Use this only on a stable Pro+ runtime:
+## 4. Outputs
 
-```bash
-python manage_colab_dsa_sea_snapshot_20260628.py \
-  --models cspnet eegnet conformer \
-  --direction both \
-  --preprocessed_dir "$MI_PREPROCESSED_DIR"
-```
-
-## 5. Outputs
-
-Raw CSVs are written under:
+CSV outputs:
 
 ```text
-project/crossdata/results/
+/content/MI_loso_project/project/crossdata/results/
 ```
 
 Logs:
 
 ```text
-project/crossdata/results/runs/
+/content/MI_loso_project/project/crossdata/results/runs/
 ```
 
 Live summary:
 
 ```text
-project/crossdata/colab_dsa_sea_snapshot_20260628.md
+/content/MI_loso_project/project/crossdata/colab_dsa_sea_snapshot_20260628.md
 ```
 
-Expected CSV names:
-
-```text
-loso_results_20260628_colab_dsa_sea_snapshot_cspnet_cross_cho2017_to_lee2019_cspnet.csv
-loso_results_20260628_colab_dsa_sea_snapshot_cspnet_cross_lee2019_to_cho2017_cspnet.csv
-loso_results_20260628_colab_dsa_sea_snapshot_eegnet_cross_cho2017_to_lee2019_eegnet.csv
-loso_results_20260628_colab_dsa_sea_snapshot_eegnet_cross_lee2019_to_cho2017_eegnet.csv
-loso_results_20260628_colab_dsa_sea_snapshot_conformer_cross_cho2017_to_lee2019_conformer.csv
-loso_results_20260628_colab_dsa_sea_snapshot_conformer_cross_lee2019_to_cho2017_conformer.csv
-```
-
-## 6. Push Results Back
-
-After runs finish:
+Save results to Drive after each completed direction:
 
 ```bash
-cd /content/drive/MyDrive/MI_loso_project
-git status
-git add project/crossdata/results project/crossdata/colab_dsa_sea_snapshot_20260628.md
-git commit -m "Add DSA SEA Snapshot cross-dataset results"
-git push origin master
-```
-
-If Git identity is missing:
-
-```bash
-git config user.name "heegyukim4043"
-git config user.email "55726335+heegyukim4043@users.noreply.github.com"
+SAVE_DIR=/content/drive/MyDrive/MI_loso_project/colab_results/dsa_sea_snapshot_20260628
+mkdir -p "$SAVE_DIR"
+cp -v /content/MI_loso_project/project/crossdata/colab_dsa_sea_snapshot_20260628.md "$SAVE_DIR"/ 2>/dev/null || true
+cp -v /content/MI_loso_project/project/crossdata/results/loso_results_20260628_colab_dsa_sea_snapshot_*_cross_*.csv "$SAVE_DIR"/ 2>/dev/null || true
 ```
