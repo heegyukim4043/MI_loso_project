@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import csv
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -25,6 +26,11 @@ DEFAULT_PREP = PROJECT / "preprocessed_sfreq100"
 DEFAULT_BACKUP = os.environ.get("MI_BACKUP_DIR")
 MODELS = ("cspnet", "eegnet", "conformer")
 SNAPSHOT_T0 = 50
+RESULT_RE = re.compile(
+    r"^loso_results_(?P<prefix>.+?)_(?P<model>cspnet|eegnet|conformer)_cross_"
+    r"(?P<train>cho2017|lee2019)_to_(?P<test>cho2017|lee2019)_"
+    r"(?P=model)\.csv$"
+)
 EXPECTED_PREPROCESSED = {
     "cho2017": {
         "shape": (10520, 64, 201),
@@ -37,6 +43,16 @@ EXPECTED_PREPROCESSED = {
         "subjects": 54,
         "trials_per_subject": 200,
         "sfreq": 100.0,
+    },
+}
+EXPECTED_RESULT = {
+    "cho2017": {
+        "subjects": 52,
+        "n_test_values": {200, 240},
+    },
+    "lee2019": {
+        "subjects": 54,
+        "n_test_values": {200},
     },
 }
 
@@ -61,6 +77,39 @@ def read_metric(path: Path, metric_col: str = "snap_acc") -> tuple[int, Optional
         sum(accs) / len(accs) if accs else None,
         sum(snap_adabn) / len(snap_adabn) if snap_adabn else None,
     )
+
+
+def result_validation(path: Path, test_name: str, metric_col: str = "snap_acc") -> tuple[bool, str]:
+    if not path.exists():
+        return False, "missing"
+    spec = EXPECTED_RESULT[test_name]
+    rows = 0
+    snap_rows = 0
+    n_test_values: set[int] = set()
+    with path.open(newline="") as f:
+        for row in csv.DictReader(f):
+            rows += 1
+            if row.get(metric_col) not in ("", None):
+                snap_rows += 1
+            if row.get("n_test") not in ("", None):
+                n_test_values.add(int(float(row["n_test"])))
+    problems = []
+    if rows != spec["subjects"]:
+        problems.append(f"rows={rows}, expected {spec['subjects']}")
+    if snap_rows != spec["subjects"]:
+        problems.append(f"{metric_col} rows={snap_rows}, expected {spec['subjects']}")
+    if not n_test_values.issubset(spec["n_test_values"]) or not n_test_values:
+        problems.append(f"n_test={sorted(n_test_values)}, expected {sorted(spec['n_test_values'])}")
+    if problems:
+        return False, "; ".join(problems)
+    return True, f"rows={rows}, n_test={sorted(n_test_values)}"
+
+
+def infer_test_from_result(path: Path) -> Optional[str]:
+    match = RESULT_RE.match(path.name)
+    if not match:
+        return None
+    return match.group("test")
 
 
 def fmt_metric(v: tuple[int, Optional[float], Optional[float]]) -> str:
@@ -134,6 +183,12 @@ def backup_outputs(prefix: str, backup_dir: Optional[Path]) -> None:
         shutil.copy2(SUMMARY, backup_dir / SUMMARY.name)
         copied += 1
     for path in sorted(RESULTS.glob(f"loso_results_{prefix}_*_cross_*.csv")):
+        test_name = infer_test_from_result(path)
+        if test_name is not None:
+            ok, reason = result_validation(path, test_name)
+            if not ok:
+                print(f"[backup skip invalid] {path.name}: {reason}", flush=True)
+                continue
         shutil.copy2(path, backup_dir / path.name)
         copied += 1
     print(f"[backup] {copied} files -> {backup_dir}", flush=True)
@@ -168,9 +223,11 @@ def write_summary(prefix: str, note: str = "", backup_dir: Optional[Path] = None
     backup_outputs(prefix, backup_dir)
 
 
-def should_skip(path: Path, expected_subjects: int) -> bool:
-    n, snap, _ = read_metric(path)
-    return path.exists() and n >= expected_subjects and snap is not None
+def should_skip(path: Path, test_name: str) -> bool:
+    ok, reason = result_validation(path, test_name)
+    if not ok and path.exists():
+        print(f"[rerun invalid] {path.name}: {reason}", flush=True)
+    return ok
 
 
 def run_one(
@@ -182,9 +239,8 @@ def run_one(
     force: bool,
 ) -> int:
     run_id = run_id_for(prefix, model)
-    expected_subjects = 54 if test == "lee2019" else 52
     out_csv = result_csv(run_id, train, test, model)
-    if not force and should_skip(out_csv, expected_subjects):
+    if not force and should_skip(out_csv, test):
         print(f"[skip] {model} {train}->{test}: complete CSV exists: {out_csv}", flush=True)
         return 0
 
@@ -222,6 +278,12 @@ def run_one(
         f.flush()
         rc = subprocess.run(cmd, cwd=ROOT, env=env, stdout=f, stderr=subprocess.STDOUT).returncode
     print(f"[done] {model} {train}->{test} exit={rc}", flush=True)
+    if rc == 0:
+        ok, reason = result_validation(out_csv, test)
+        if not ok:
+            print(f"[invalid output] {out_csv.name}: {reason}", flush=True)
+            return 2
+        print(f"[valid output] {out_csv.name}: {reason}", flush=True)
     return rc
 
 
