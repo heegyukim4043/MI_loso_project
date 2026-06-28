@@ -24,8 +24,10 @@ Expected shapes:
 
 ```text
 cho2017: X=(10520, 64, 201), subjects=52, sfreq=100
-lee2019: X=(5400, 62, 201), subjects=54, sfreq=100
+lee2019: X=(10800, 62, 201), subjects=54, sfreq=100, 200 trials/subject
 ```
+
+Important: the existing cross-dataset matrix used the legacy sfreq100 preprocessed files from `/home/hkim/MI_test/preprocessed_sfreq100`. A Lee2019 file with `X=(5400, 62, 201)` is a one-session export and must not be used for these runs, because prior cross-dataset CSVs evaluate 200 Lee trials per subject.
 
 ## 2. Colab Setup
 

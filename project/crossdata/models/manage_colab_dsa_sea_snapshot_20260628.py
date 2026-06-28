@@ -10,6 +10,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Optional
 
+import numpy as np
+
 
 ROOT = Path(__file__).resolve().parent
 PROJECT = ROOT.parent
@@ -23,6 +25,20 @@ DEFAULT_PREP = PROJECT / "preprocessed_sfreq100"
 DEFAULT_BACKUP = os.environ.get("MI_BACKUP_DIR")
 MODELS = ("cspnet", "eegnet", "conformer")
 SNAPSHOT_T0 = 50
+EXPECTED_PREPROCESSED = {
+    "cho2017": {
+        "shape": (10520, 64, 201),
+        "subjects": 52,
+        "trials_per_subject": None,
+        "sfreq": 100.0,
+    },
+    "lee2019": {
+        "shape": (10800, 62, 201),
+        "subjects": 54,
+        "trials_per_subject": 200,
+        "sfreq": 100.0,
+    },
+}
 
 
 def result_csv(run_id: str, train: str, test: str, model: str) -> Path:
@@ -64,6 +80,45 @@ def direction_pairs(direction: str) -> list[tuple[str, str]]:
     if direction == "both":
         return [("cho2017", "lee2019"), ("lee2019", "cho2017")]
     raise ValueError(direction)
+
+
+def validate_preprocessed_dir(preprocessed_dir: Path) -> None:
+    """Require the same sfreq100 files used by the existing cross-dataset matrix."""
+    for name, expected in EXPECTED_PREPROCESSED.items():
+        path = preprocessed_dir / f"{name}.npz"
+        if not path.exists():
+            raise FileNotFoundError(
+                f"Expected {path}. Pass --preprocessed_dir or set MI_PREPROCESSED_DIR."
+            )
+        data = np.load(path, allow_pickle=True)
+        X = data["X"]
+        y = data["y"]
+        subjects = data["subjects"]
+        sfreq = float(data["sfreq"])
+        unique_subjects, counts = np.unique(subjects, return_counts=True)
+        if tuple(X.shape) != expected["shape"]:
+            raise ValueError(
+                f"{name}.npz has X={X.shape}, expected {expected['shape']} for the "
+                "legacy sfreq100 cross-dataset pipeline. Do not use the one-session "
+                "MOABB Colab export for these runs."
+            )
+        if len(y) != X.shape[0] or len(subjects) != X.shape[0]:
+            raise ValueError(f"{name}.npz length mismatch: X={len(X)} y={len(y)} subjects={len(subjects)}")
+        if len(unique_subjects) != expected["subjects"]:
+            raise ValueError(f"{name}.npz has {len(unique_subjects)} subjects, expected {expected['subjects']}")
+        if abs(sfreq - expected["sfreq"]) > 1e-6:
+            raise ValueError(f"{name}.npz has sfreq={sfreq}, expected {expected['sfreq']}")
+        if expected["trials_per_subject"] is not None and not np.all(counts == expected["trials_per_subject"]):
+            raise ValueError(
+                f"{name}.npz trial counts per subject are {sorted(set(counts.tolist()))}, "
+                f"expected all {expected['trials_per_subject']}."
+            )
+        labels, label_counts = np.unique(y, return_counts=True)
+        print(
+            f"[preproc ok] {name}: X={X.shape}, subjects={len(unique_subjects)}, "
+            f"sfreq={sfreq}, labels={dict(zip(labels.tolist(), label_counts.tolist()))}",
+            flush=True,
+        )
 
 
 def run_id_for(prefix: str, model: str) -> str:
@@ -183,11 +238,7 @@ def main() -> int:
     RESULTS.mkdir(parents=True, exist_ok=True)
     RUNS.mkdir(parents=True, exist_ok=True)
 
-    if not (args.preprocessed_dir / "cho2017.npz").exists() or not (args.preprocessed_dir / "lee2019.npz").exists():
-        raise FileNotFoundError(
-            f"Expected cho2017.npz and lee2019.npz under {args.preprocessed_dir}. "
-            "Pass --preprocessed_dir or set MI_PREPROCESSED_DIR."
-        )
+    validate_preprocessed_dir(args.preprocessed_dir)
 
     write_summary(args.run_prefix, "- Queue started.", args.backup_dir)
     for model in args.models:
